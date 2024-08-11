@@ -26,9 +26,12 @@
             playRound(getPlayerChoice(), getComputerChoice());
 
         if (computerScore > playerScore)
-            console.log("COM wins! The score was",computerScore, "-", playerScore)
+            console.log("COM wins the game! ");
+        else if (playerScore > computerScore)
+            console.log("You win the game! ");
         else
-            console.log("You win! The score was",playerScore, "-", computerScore)
+            console.log("It was a tie!");
+        console.log("The score was",playerScore, "-", computerScore);
 
         function playRound(playerChoice, compChoice)
         {
