@@ -21,8 +21,8 @@ function playGame()
     computerScore = 0;
     playerScore = 0;
 
-    for(i=0; i<5; i++)
-        playRound(getPlayerChoice(), getComputerChoice());
+    //for(i=0; i<5; i++)
+    //    playRound(getPlayerChoice(), getComputerChoice());
 
     if (computerScore > playerScore)
         console.log("COM wins the game! ");
