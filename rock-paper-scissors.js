@@ -21,8 +21,12 @@ function playGame()
     computerScore = 0;
     playerScore = 0;
 
-    //for(i=0; i<5; i++)
-    //    playRound(getPlayerChoice(), getComputerChoice());
+    const rockButton = document.querySelector("#rock");
+    const paperButton = document.querySelector("#paper");
+    const scissorsButton = document.querySelector("#scissors");
+    rockButton.addEventListener("click", () => {playRound("rock", getComputerChoice())});
+    paperButton.addEventListener("click", () => {playRound("paper", getComputerChoice())});
+    scissorsButton.addEventListener("click", () => {playRound("scissors", getComputerChoice())});
 
     if (computerScore > playerScore)
         console.log("COM wins the game! ");
