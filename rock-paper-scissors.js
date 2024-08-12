@@ -22,6 +22,7 @@ function playGame()
 
     const results = document.querySelector("#results");
     const score = document.querySelector("#score");
+    const body = document.querySelector("body");
 
     const rockButton = document.querySelector("#rock");
     const paperButton = document.querySelector("#paper");
@@ -29,14 +30,6 @@ function playGame()
     rockButton.addEventListener("click", () => {playRound("rock", getComputerChoice())});
     paperButton.addEventListener("click", () => {playRound("paper", getComputerChoice())});
     scissorsButton.addEventListener("click", () => {playRound("scissors", getComputerChoice())});
-
-    if (computerScore > playerScore)
-        results.textContent = "COM wins the game! ";
-    else if (playerScore > computerScore)
-        results.textContent = "You win the game! ";
-    else
-        results.textContent = "It was a tie! ";
-    results.textContent += "The score was", playerScore, "-", computerScore;
 
     function playRound(playerChoice, compChoice)
     {
@@ -55,5 +48,15 @@ function playGame()
             results.textContent = "You lose! " + compChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
         }
         score.textContent = "YOU: " + playerScore + "\nCOM: " + computerScore;
+        if(playerScore == 5 || computerScore == 5)
+        {
+            body.removeChild(rockButton);
+            body.removeChild(paperButton);
+            body.removeChild(scissorsButton);
+            if (computerScore > playerScore)
+                results.textContent = "COM wins the game! ";
+            else
+                results.textContent = "You win the game! ";
+        }
     }
 }
