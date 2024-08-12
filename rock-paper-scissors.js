@@ -10,10 +10,6 @@ function getComputerChoice()
     else
         return "scissors";
 }
-function getPlayerChoice()
-{
-    return prompt("Enter 'rock', 'paper', or 'scissors': ");
-}
 
 function playGame()
 {
