@@ -28,32 +28,33 @@ function playGame()
     paperButton.addEventListener("click", () => {playRound("paper", getComputerChoice())});
     scissorsButton.addEventListener("click", () => {playRound("scissors", getComputerChoice())});
 
+    const results = document.querySelector("#results");
+
     if (computerScore > playerScore)
-        console.log("COM wins the game! ");
+        results.textContent = "COM wins the game! ";
     else if (playerScore > computerScore)
-        console.log("You win the game! ");
+        results.textContent = "You win the game! ";
     else
-        console.log("It was a tie!");
-    console.log("The score was",playerScore, "-", computerScore);
+        results.textContent = "It was a tie! ";
+    results.textContent += "The score was", playerScore, "-", computerScore;
 
     function playRound(playerChoice, compChoice)
     {
-        playerChoice = playerChoice.toLowerCase();
         console.log(compChoice);
         console.log(playerChoice);
         if(compChoice == playerChoice)
-            console.log("It's a tie! Both chose", playerChoice);
+            results.textContent = "It's a tie! Both chose " + playerChoice.toUpperCase();
         else if((compChoice == "rock" && playerChoice == "paper") ||
                 (compChoice == "scissors" && playerChoice == "rock") ||
                 (compChoice == "paper" && playerChoice == "scissors"))
         {
             playerScore++;
-            console.log("You win!", playerChoice.toUpperCase(), "beats", compChoice.toUpperCase());
+            results.textContent = "You win! " + playerChoice.toUpperCase() + " beats " + compChoice.toUpperCase();
         }
         else
         {
             computerScore++;
-            console.log("You lose!", compChoice.toUpperCase(), "beats", playerChoice.toUpperCase())
+            results.textContent = "You lose! " + compChoice.toUpperCase() + " beats " + playerChoice.toUpperCase();
         }
     }
 }
